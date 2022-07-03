@@ -1,0 +1,32 @@
+Tema 6. - Conversão de imagem colorida para escala de cinza.
+
+Cliente:
+- Compilar os arquivos .java;
+- Rodar no terminal o comando para gerar o stub: rmic ServerImp
+- Na pasta do projeto abra um terminal;
+- No terminal digite o comando:
+java -Djava.security.policy=java.policy TicketClient rmi://<endereço IP>/<caminho para os arquivos .class do servidor>:<porta>/<id_metodo>
+- Faça as alterações onde temos <...>
+
+
+
+Servidor:
+- Criar uma pasta para o server. Se for mais de um servidor, então deve-se criar várias
+pastas diferentes;
+- Colocar dentro da pasta do servidor os arquivos do projeto ".class";
+- Abrir um terminal dentro da pasta do servidor;
+- Digitar no terminal aberto: rmiregistry &
+- Rodar no terminal o comando: java -Djava.rmi.server.codebase=http://<endereço IP>/<caminho para os arquivos .class do servidor> -Djava.security.policy=java.policy ServerImp rmi://<endereço IP>/<caminho para os arquivos .class do servidor>:<porta (quando não utilizar a padrão)>/<id_metodo> &
+- Faça as alterações onde temos <...>
+
+
+
+Ex:
+Servidor:
+java -Djava.rmi.server.codebase=http://localhost/home/gabriel/rmi/Server/ -Djava.security.policy=java.policy ServerImp rmi://localhost/home/gabriel/rmi/Server/grayscale &
+
+Cliente:
+java -Djava.security.policy=java.policy Client rmi://localhost/home/gabriel/rmi/Server/grayscale
+
+Imagem:
+/home/gabriel/rmi/Images/imagen4k.jpg
